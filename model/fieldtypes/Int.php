@@ -21,7 +21,11 @@ class Int extends DBField {
 	}
 
 	public function nullValue() {
-		return "0";
+		return 0;
+	}
+
+	public function getValue() {
+		return (int)$this->value;
 	}
 
 	public function requireField() {
