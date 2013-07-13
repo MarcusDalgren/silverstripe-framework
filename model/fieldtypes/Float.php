@@ -53,6 +53,9 @@ class Float extends DBField {
 		return 0;
 	}
 
+	public function getValue() {
+		return (float)$this->value;
+	}
 	/**
 	 * Return an encoding of the given value suitable for inclusion in a SQL statement.
 	 * If necessary, this should include quotes.

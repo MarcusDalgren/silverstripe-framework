@@ -25,7 +25,11 @@ class Boolean extends DBField {
 		$values=Array('type'=>'boolean', 'parts'=>$parts);
 		DB::requireField($this->tableName, $this->name, $values);
 	}
-	
+
+	public function getValue() {
+		return (bool)$this->value;
+	}
+
 	public function Nice() {
 		return ($this->value) ? _t('Boolean.YESANSWER', 'Yes') : _t('Boolean.NOANSWER', 'No');
 	}
