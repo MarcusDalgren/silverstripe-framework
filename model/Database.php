@@ -64,6 +64,13 @@ abstract class SS_Database {
 	 * @return string $connect The connection string
 	 **/
 	abstract public function getConnect($parameters);
+
+	/**
+	 * Closes the database connection.
+	 *
+	 * @return boolean Returns true if successful
+	 */
+	abstract public function close();
 	
 	/**
 	 * Create a new table.

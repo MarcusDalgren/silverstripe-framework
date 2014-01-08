@@ -49,13 +49,25 @@ class DB {
 
 	/**
 	 * Get the global database connection.
-	 * @param $name An optional name given to a connection in the DB::setConn() call.  If omitted, 
+	 * @param $name An optional name given to a connection in the DB::setConn() call.  If omitted,
 	 * the default connection is returned.
 	 * @return SS_Database
 	 */
 	public static function getConn($name = 'default') {
 		if(isset(self::$connections[$name])) {
 			return self::$connections[$name];
+		}
+	}
+
+	/**
+	 * @param string $name An optional name given to a connection in the DB::setConn() call.  If omitted,
+	 * the default connection is returned.
+	 *
+	 * @return boolean
+	 */
+	public static function close($name = 'default') {
+		if(isset(self::$connections[$name])) {
+			return self::$connections[$name]->close();
 		}
 	}
 	

@@ -100,6 +100,19 @@ class MySQLDatabase extends SS_Database {
 	}
 
 	/**
+	 * Close the database connection
+	 *
+	 * @return boolean
+	 */
+	public function close() {
+		$close = $this->dbConn->close();
+		if ($close) {
+			$this->active = false;
+		}
+		return $close;
+	}
+
+	/**
 	 * Returns true if this database supports collations
 	 * @return boolean
 	 */
